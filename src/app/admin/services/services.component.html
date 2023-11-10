@@ -1,0 +1,32 @@
+
+<h1 class="text-center">Run differet services</h1>
+<div class="flex flex-row justify-content-center align-items-center gap-3 mt-7">
+
+  <p-card header="Web offers"  [style]="{ width: '260px' }">
+    <p class="m-0 ">
+        uuntur error repudiandae numquam deserunt qu nobis, culpa ratione quam perferendis es
+    </p>
+    <div class="flex flex-row justify-content-center align-items-center mt-5">
+      <i (click)="search('web')" class="pi pi-search" style="font-size: 2rem;margin-right: 20px;"></i>
+      <p-progressSpinner *ngIf="isWebOffersLoading" styleClass="w-3rem h-3rem" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+    </div>
+</p-card>
+<p-card header="Data offers"  [style]="{ width: '260px' }">
+  <p class="m-0">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+  </p>
+  <div class="flex flex-row justify-content-center align-items-center mt-5">
+    <i (click)="search('data')" class="pi pi-search" style="font-size: 2rem;margin-right: 20px;"></i>
+    <p-progressSpinner  *ngIf="isDataOffersLoading" styleClass="w-3rem h-3rem" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+  </div>
+</p-card>
+<p-card header="Security offers"  [style]="{ width: '260px' }">
+  <p class="m-0">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+  </p>
+  <div class="flex flex-row justify-content-center align-items-center mt-5">
+    <i (click)="search('security')" class="pi pi-search" style="font-size: 2rem;margin-right: 20px;"></i>
+    <p-progressSpinner  *ngIf="isSecurityOffersLoading" styleClass="w-3rem h-3rem" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+  </div>
+</p-card>
+</div>

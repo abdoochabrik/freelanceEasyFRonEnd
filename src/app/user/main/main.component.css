@@ -1,0 +1,13 @@
+#parent {
+  display: flex;
+}
+
+app-left-side {
+  width: 300px;
+}
+
+app-right-side {
+  flex: 1;
+  background-color: var(--bgColor);
+  height: 100vh;
+}

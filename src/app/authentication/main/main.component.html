@@ -1,0 +1,7 @@
+<div class="flex flex-row justify-content-center align-items-center bg-gray-200" style=" height: 100vh" >
+  <div>
+    <h4 style="color: blue;text-align: center;font-size: 24px;">FreelanceEasy</h4>
+    <app-login (registerEvent)="goToRegisterListener()" (loginEvent)="Login($event)" *ngIf="step == 'LOGIN'"></app-login>
+    <app-register (loginEvent)="goToLoginListener()" (registerEvent)="register($event)" *ngIf="step == 'REGISTER'" ></app-register>
+  </div>
+</div>

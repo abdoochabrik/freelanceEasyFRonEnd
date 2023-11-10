@@ -1,0 +1,17 @@
+<div   class="card" [style]="{ width: '500px' }">
+  <p-card header="Login to your account">
+    <div class="flex flex-column gap-2">
+      <label htmlFor="username">Email :</label>
+      <input pInputText id="username" [(ngModel)]="email" style="width: 60%;" aria-describedby="username-help"  />
+  </div>
+  <div class="flex flex-column gap-2 mt-4">
+    <label htmlFor="username">Password :</label>
+    <p-password [(ngModel)]="password"  [toggleMask]="true"></p-password>
+</div>
+<div class="flex flex-row justify-content-center align-items-center mt-6 gap-2">
+  <p-button class="p-button-success" (onClick)="loginEvent.emit({email,password})" label="Login" ></p-button>
+  <strong>Or</strong>
+  <button pButton pRipple label="Create Account" class="p-button-success"(click)="registerEvent.emit()"></button>
+</div>
+  </p-card>
+</div>

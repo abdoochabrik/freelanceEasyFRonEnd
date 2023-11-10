@@ -1,0 +1,119 @@
+header {
+  height: 100vh;
+  width: 300px;
+  padding: 15px 30px;
+  background-color: #025D96;
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: 0.4s;
+  z-index: 99;
+}
+
+header .profile {
+text-align: center;
+margin: 10px 0;
+}
+
+
+header .profile img {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+border: 2px solid red;
+overflow: hidden;
+}
+
+img {
+width: 100px; /* Set the desired width */
+height: 100px; /* Set the desired height */
+border-radius: 50%; /* Make the border radius 50% to create a circle */
+overflow: hidden; /* Hide any image overflow outside the circle */
+}
+header .profile h1 {
+color: white;
+font-weight: 600;
+font-size: 20px;
+margin-top: 10px;
+}
+
+header .profile .social-icons a {
+display: inline-block;
+width: 36px;
+height: 36px;
+border-radius: 50%;
+text-align: center;
+line-height: 37px;
+background-color: red;
+color: white;
+font-size: 18px;
+margin: 1.5px;
+transition: 0.4s;
+}
+
+header .profile .social-icons a:hover {
+background-color: red;
+}
+
+header nav {
+margin-top: 30px;
+}
+
+header nav ul li {
+list-style: none;
+}
+
+header nav ul li a {
+display: inline-block;
+text-decoration: none;
+padding: 7px 10px;
+margin: 2px 0;
+color: lightgray;
+font-weight: 400;
+font-size: 15px;
+letter-spacing: 0.6px;
+}
+
+header nav ul li a i{
+  margin-right: 10px;
+  font-size: 20px;
+  transition: 0.4s;
+}
+
+header nav ul li a:hover i {
+color:  red;
+}
+
+header .footer {
+text-align: center;
+background-color: #025D96;
+width: 300px;
+color: lightgray;
+font-size: 14px;
+letter-spacing: 0.6 px;
+position: fixed;
+bottom: 0;
+left: 0;
+transform: 0.4s;
+}
+
+header .profile  p a{
+color: red;
+}
+
+.footer p label {
+color: red;
+font-weight: 600;
+}
+
+@media only screen and (max-width: 1050px) {
+header {
+  left: -300px;
+}
+
+header .footer {
+  left: -300px;
+}
+}

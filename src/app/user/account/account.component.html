@@ -1,0 +1,26 @@
+<p-progressSpinner  *ngIf="!user"></p-progressSpinner>
+<div  style="margin: 0 auto;margin-top: 20px;"  *ngIf="user" class="card" [style]="{ width: '500px' }">
+  <p-card  header="Edit Profile">
+       <div class="flex flex-column gap-2">
+        <label htmlFor="username">Username : </label>
+        <input pInputText [(ngModel)]="user.username" />
+    </div>
+    <div class="flex flex-column gap-2">
+      <label htmlFor="username">Email :</label>
+      <input pInputText [(ngModel)]="user.email" aria-describedby="username-help"  />
+  </div>
+  <div class="flex flex-column gap-2">
+    <label htmlFor="username">Password :</label>
+    <p-password [(ngModel)]="user.password" [toggleMask]="true"></p-password>
+</div>
+<div class="flex flex-column gap-2 mb-3">
+  <label htmlFor="username">Role : </label>
+  <input pInputText id="username" [(ngModel)]="user.role" [disabled]="true" aria-describedby="username-help" />
+ </div>
+ <div class="flex flex-row gap-4 mb-3">
+  <label htmlFor="username">Activate notifications : </label>
+  <p-inputSwitch [(ngModel)]="user.activateNotifications"></p-inputSwitch>
+ </div>
+       <p-button  label="Submit" (click)="updateAccount()"></p-button>
+  </p-card>
+</div>
