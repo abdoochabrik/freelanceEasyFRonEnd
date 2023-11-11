@@ -9,40 +9,20 @@ import { UserService } from '../services/user-service.service';
 })
 export class MainComponent implements OnInit {
 
-  public user!:User
+  public userId!:number;
   isLoaded:boolean = false;
 
   constructor(private  readonly userService:UserService) {
-
   }
 
   ngOnInit(): void {
-     const result:string|null  = localStorage.getItem("user");
-     if(result) {
-      const user:User = JSON.parse(result);
-      this.userService.getUserById(user.id).subscribe(user =>
-        this.user = user,
-     )
-      this.isLoaded = true;
+     const data:string|null  = localStorage.getItem("userId");
+     if(data) {
+      this.userId = JSON.parse(data);
      }
   }
 
   ngOnDestroy(): void {
       console.log('unsubscribe');
   }
-
-  updateAccount() {
-    const dto = {
-      username:this.user.username,
-      email:this.user.email,
-      password:this.user.password,
-      centerOfInterest:this.user.centerOfInterest,
-      activateNotifications:this.user.activateNotifications,
-    }
-
-    this.userService.updateUser(dto,this.user.id).subscribe((user) => {
-      console.log("user updated",user)
-     })
-  }
-
 }

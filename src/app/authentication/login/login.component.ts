@@ -19,15 +19,4 @@ export class LoginComponent {
   public email!:string;
   public password!:string;
 
-  /*Login() {
-   this.authService.Login(this.email,this.password).subscribe(user => {
-    localStorage.setItem('user', JSON.stringify(user));
-    if(user.role == Role.USER) {
-      this.router.navigateByUrl('/user/user');
-     }
-     else if(user.role == Role.ADMIN ) {
-      this.router.navigateByUrl('admin/users');
-     }
-   })
-  }*/
 }

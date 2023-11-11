@@ -17,15 +17,16 @@ export class OffersComponent implements OnInit,OnDestroy {
 
 
   ngOnInit(): void {
-      const user:string|null = localStorage.getItem("user");
-      if(user != null) {
-         const userObject:User = JSON.parse(user);
-         const centerOfInterest = userObject.centerOfInterest.toLowerCase();
-         this.userService.getOffers(centerOfInterest).subscribe((offers) => {
-          this.offers = offers
-          this.isLoading = false;
-         }
-         )
+      const data:string|null = localStorage.getItem("userId");
+      if(data) {
+         const userId:number = JSON.parse(data);
+         this.userService.getUserById(userId).subscribe(user => {
+            const centerOfInterest = user.centerOfInterest.toLocaleLowerCase()
+            this.userService.getOffers(centerOfInterest).subscribe((offers) => {
+                this.offers = offers
+                this.isLoading = false
+            })
+         })
       }
   }
 

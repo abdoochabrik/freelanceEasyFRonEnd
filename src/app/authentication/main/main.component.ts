@@ -31,7 +31,8 @@ export class MainComponent {
 
   Login(event:{email:string,password:string}) {
    this.authService.Login(event.email,event.password).subscribe(user => {
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('userId', JSON.stringify(user.id));
+    localStorage.setItem('userRole', JSON.stringify(user.role));
     if(user.role == Role.USER) {
       this.router.navigateByUrl('/user/user');
      }

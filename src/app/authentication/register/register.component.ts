@@ -31,9 +31,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    /*this.authService.register(this.username,this.email,this.password,this.centerOfIterest.value).subscribe(user => {
-        this.loginEvent.emit();
-    })*/
     const data = {
       username:this.username,
       email:this.email,

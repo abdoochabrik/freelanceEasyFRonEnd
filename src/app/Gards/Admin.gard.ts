@@ -13,17 +13,17 @@ export class AdminGuard implements CanLoad {
     route: Route,
     segments: UrlSegment[]
   ): boolean {
-      const data:string|null = localStorage?.getItem('user');
-      let canload:boolean = false;
-      if(data){
-        const user:User =  JSON.parse(data);
-        canload =  user.role == Role.ADMIN;
-      }
-      if(canload) {
-        return true
-      }
-      this.router.navigateByUrl('/auth')
-      return false;
-
+    const data:string|null = localStorage?.getItem('userRole');
+    let canload:boolean = false;
+    if(data){
+      const role =  JSON.parse(data);
+      canload =  role == Role.ADMIN;
+    }
+    if(canload) {
+      return true
+    }
+    this.router.navigateByUrl('/auth')
+    return false;
   }
+
 }

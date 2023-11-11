@@ -2,7 +2,7 @@
   <header >
   <div class="profile">
     <img src="assets/admin.jpg" alt="My Image">
-    <h1>{{username}}</h1>
+    <h1 *ngIf="isLoaded">{{user.username}}</h1>
   </div>
   <nav>
     <ul>

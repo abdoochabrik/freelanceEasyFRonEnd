@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { User } from 'src/app/admin/Models/User.model';
 import { UserService } from '../services/user-service.service';
+import { CenterOfInterest } from 'src/app/shared/enums/CenterOfInterest';
 
 @Component({
   selector: 'app-account',
@@ -12,15 +13,19 @@ export class AccountComponent implements OnInit,OnDestroy {
   public user!:User
   isLoaded:boolean = false;
 
-  constructor(private  readonly userService:UserService) {
+ /* centersOfInterest:any[] = [{label:"web Development",value:CenterOfInterest.WEB},
+  {label:"Cyber security",value:CenterOfInterest.SECURITY},
+  {label:"Data engineering",value:CenterOfInterest.DATA}
+ ]*/
 
-  }
+ centersOfInterest:any[] = [CenterOfInterest.WEB,CenterOfInterest.SECURITY,CenterOfInterest.DATA]
+  constructor(private  readonly userService:UserService) { }
 
   ngOnInit(): void {
-     const result:string|null  = localStorage.getItem("user");
+     const result:string|null  = localStorage.getItem("userId");
      if(result) {
-      const user:User = JSON.parse(result);
-      this.userService.getUserById(user.id).subscribe((user) => {
+      const userId:number = JSON.parse(result);
+      this.userService.getUserById(userId).subscribe((user) => {
         this.user = user,
         this.isLoaded = true
       }

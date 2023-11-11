@@ -13,11 +13,11 @@ export class UserGuard implements CanLoad {
     route: Route,
     segments: UrlSegment[]
   ): boolean {
-    const data:string|null = localStorage?.getItem('user');
+    const data:string|null = localStorage?.getItem('userRole');
     let canload:boolean = false;
     if(data){
-      const user:User =  JSON.parse(data);
-      canload =  user.role == Role.USER;
+      const role =  JSON.parse(data);
+      canload =  role == Role.USER;
     }
     if(canload) {
       return true
