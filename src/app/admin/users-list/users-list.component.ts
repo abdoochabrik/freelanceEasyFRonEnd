@@ -1,48 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../Models/User.model';
-import { CenterOfInterest } from '../Models/CenterOfIneters.enum';
-import { Role } from '../Models/Role.enum';
+import { AdminService } from '../service/AdminService';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css']
 })
-export class UsersListComponent {
+export class UsersListComponent implements OnInit {
+
+  constructor(private readonly adminService:AdminService){}
 
   sidebarVisible: boolean = false;
-  users: User[] =  [
-     {
-      id:1,
-      username:"chabrik1",
-      email:"chabrik1@gmail.com",
-      password:"n",
-      centerOfInterest:CenterOfInterest.DATA,
-      activateNotifications:true,
-      role:Role.USER
-     },
-     {
-      id:1,
-      username:"chabrik1",
-      email:"chabrik1@gmail.com",
-      password:"n",
-      centerOfInterest:CenterOfInterest.DATA,
-      activateNotifications:true,
-      role:Role.USER
-     },
-     {
-      id:1,
-      username:"chabrik1",
-      email:"chabrik1@gmail.com",
-      password:"n",
-      centerOfInterest:CenterOfInterest.DATA,
-      activateNotifications:true,
-      role:Role.USER
-     },
-  ];
+  selctedUser!:User;
+  isLoading:boolean = true;
+  users!: User[]
 
-selectProduct(product:any) {
-    console.log('event',product)
+  ngOnInit(): void {
+    this.adminService.getUsers().subscribe(users => {
+      this.users = [...users];
+      this.isLoading = false;
+    })
+  }
+  selectUser(user:any) {
+    this.selctedUser = user
     this.sidebarVisible =true;
-}
+  }
+
+  hideSideBarListner() {
+    this.sidebarVisible = false
+  }
+
+  updateUserListener(event:User) {
+    this.sidebarVisible = false
+    this.isLoading = true
+    const Dto = {
+      username:event.username,
+      activateNotifications:event.activateNotifications
+    }
+     this.adminService.updateUser(Dto,event.id).subscribe(user => {
+        this.isLoading = false;
+     })
+  }
 }

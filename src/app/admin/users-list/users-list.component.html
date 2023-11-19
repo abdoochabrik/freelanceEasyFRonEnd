@@ -1,4 +1,6 @@
 <h1 class="text-center">Users list</h1>
+
+<p-progressSpinner  *ngIf="isLoading"></p-progressSpinner>
 <div class="card">
   <p-table [value]="users" [tableStyle]="{ 'min-width': '50rem','border':'solid' }">
       <ng-template pTemplate="header">
@@ -17,19 +19,13 @@
               <td>{{ user.centerOfInterest }}</td>
               <td>{{ user.activateNotifications }}</td>
               <td>
-                  <a><i  style="font-size: 1.5rem;color: blue;" class="pi pi-user-edit" (click)="selectProduct(user)"></i></a>
+                  <a><i  style="font-size: 1.5rem;color: blue;" class="pi pi-user-edit" (click)="selectUser(user)"></i></a>
               </td>
           </tr>
       </ng-template>
   </p-table>
 </div>
 
-<div class="card flex justify-content-center">
-  <p-sidebar [(visible)]="sidebarVisible">
-      <h3>Sidebar</h3>
-      <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-  </p-sidebar>
+<div *ngIf="sidebarVisible" class="card flex justify-content-center">
+  <side-bar (updateUserEvent)="updateUserListener($event)" (hideSideBarEvent)="hideSideBarListner()" [user]="selctedUser"></side-bar>
 </div>
