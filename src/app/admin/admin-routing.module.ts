@@ -6,7 +6,7 @@ import { MainComponent } from './main/main.component';
 import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
-  {path:'admin',component:MainComponent, children: [
+  {path:'',component:MainComponent, children: [
     {path:'users',component:UsersListComponent},
     {path:'services',component:ServicesComponent},
     {path:'account',component:AccountComponent},

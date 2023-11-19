@@ -33,11 +33,13 @@ export class MainComponent {
    this.authService.Login(event.email,event.password).subscribe(user => {
     localStorage.setItem('userId', JSON.stringify(user.id));
     localStorage.setItem('userRole', JSON.stringify(user.role));
+    console.log('user',user.role == Role.ADMIN,user.role == Role.USER)
     if(user.role == Role.USER) {
       this.router.navigateByUrl('/user/user');
      }
      else if(user.role == Role.ADMIN ) {
-      this.router.navigateByUrl('admin/users');
+      console.log('admin')
+      this.router.navigateByUrl('/admin/users');
      }
    })
   }
