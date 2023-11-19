@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Offer } from "src/app/shared/models/Offer.model";
 import { BaseService } from "src/app/shared/services/base.service";
+import { User } from "../Models/User.model";
 
 
 @Injectable()
@@ -16,5 +17,9 @@ export class AdminService extends BaseService {
 
     public scrappOffers(centerOfInterest:string):Observable<Offer[]> {
       return this.http.get<Offer[]>(`http://localhost:8083/api/child-scraper-controller/${centerOfInterest}`);
+    }
+
+    public getUsers(): Observable<User[]> {
+      return this.http.get<User[]>(this.baseUrl);
     }
 }

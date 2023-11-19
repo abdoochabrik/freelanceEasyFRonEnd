@@ -19,6 +19,8 @@ import { SidebarModule } from 'primeng/sidebar';
 import { SharedModule } from '../shared/shared.module';
 import { AdminService } from './service/AdminService';
 import { BaseService } from '../shared/services/base.service';
+import { SideBarComponent } from './users-list/SideBarComponent/SideBarComponent.component';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { BaseService } from '../shared/services/base.service';
     MainComponent,
     LeftMenuComponent,
     RightSideComponent,
-    AccountComponent
+    AccountComponent,
+    SideBarComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +44,8 @@ import { BaseService } from '../shared/services/base.service';
     ButtonModule,
     DropdownModule,
     SidebarModule,
-    SharedModule
+    SharedModule,
+    InputSwitchModule
   ],
   providers:[AdminService,BaseService],
   exports:[AccountComponent]
