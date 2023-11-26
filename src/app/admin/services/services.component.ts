@@ -24,18 +24,33 @@ export class ServicesComponent {
           this.getOffers('web').subscribe((offers) => {
             this.isWebOffersLoading = false;
           })
+          //temporary solution
+          //TODO: handle backend exception
+          setTimeout(() => {
+            this.isWebOffersLoading = false;
+          }, 3000)
           break;
         case 'data':
           this.isDataOffersLoading = true;
           this.getOffers('data').subscribe((offers) => {
             this.isDataOffersLoading= false;
           })
+           //temporary solution
+          //TODO: handle backend exception
+          setTimeout(() => {
+            this.isDataOffersLoading= false;
+          }, 3000)
           break;
         case 'security':
           this.isSecurityOffersLoading = true;
           this.getOffers('security').subscribe((offers) => {
             this.isSecurityOffersLoading = false;
           })
+           //temporary solution
+          //TODO: handle backend exception
+          setTimeout(() => {
+            this.isSecurityOffersLoading = false;
+          }, 3000)
           break
       }
   }
