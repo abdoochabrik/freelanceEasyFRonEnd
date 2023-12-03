@@ -13,8 +13,4 @@ export class UserService extends BaseService {
     super(http);
   }
 
-  public getOffers(centerOfInterest:string):Observable<Offer[]> {
-    return this.http.get<Offer[]>(`http://localhost:8080/parent-scraper-controller/${centerOfInterest}`);
-  }
-
 }

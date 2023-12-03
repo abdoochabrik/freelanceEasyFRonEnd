@@ -21,6 +21,7 @@ import { AdminService } from './service/AdminService';
 import { BaseService } from '../shared/services/base.service';
 import { SideBarComponent } from './users-list/SideBarComponent/SideBarComponent.component';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { ChildScraperService } from '../shared/services/child-scraper.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     SharedModule,
     InputSwitchModule
   ],
-  providers:[AdminService,BaseService],
+  providers:[AdminService,BaseService,ChildScraperService],
   exports:[AccountComponent]
 })
 export class AdminModule { }
