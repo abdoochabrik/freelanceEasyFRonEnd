@@ -19,6 +19,7 @@ import { AccountComponent } from './account/account.component';
 import { OffersComponent } from './offers/offers.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { OfferComponent } from './offers/offer/offer.component';
+import { ParentScraperService } from '../shared/services/parent-scraper.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,6 @@ import { OfferComponent } from './offers/offer/offer.component';
     DropdownModule,
     InputSwitchModule
   ],
-  providers: [UserService]
+  providers: [UserService,ParentScraperService]
 })
 export class UserModule { }

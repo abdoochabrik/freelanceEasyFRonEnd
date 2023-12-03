@@ -9,7 +9,7 @@ import { UpdateUserDto } from '../Dto/updateUserDto';
 })
 export class BaseService {
 
-  protected baseUrl:string = "http://localhost:8081/api/v1/users";
+  protected baseUrl:string = "http://localhost:8765/USER/api/v1/users";
 
   constructor(protected readonly http:HttpClient) { }
 

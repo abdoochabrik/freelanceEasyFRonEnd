@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminService } from '../service/AdminService';
 import { Observable } from 'rxjs';
 import { Offer } from 'src/app/shared/models/Offer.model';
+import { ChildScraperService } from 'src/app/shared/services/child-scraper.service';
 
 @Component({
   selector: 'app-services',
@@ -14,7 +15,7 @@ export class ServicesComponent {
   isDataOffersLoading:boolean = false;
   isSecurityOffersLoading:boolean = false;
 
-  constructor(private readonly adminService:AdminService) {
+  constructor(private readonly childScrapperService:ChildScraperService) {
   }
 
   search(event:string) {
@@ -56,6 +57,6 @@ export class ServicesComponent {
   }
 
  private getOffers(centerOfInterest:string):Observable<Offer[]> {
-    return this.adminService.scrappOffers(centerOfInterest)
+    return this.childScrapperService.scrappOffers(centerOfInterest)
   }
 }
